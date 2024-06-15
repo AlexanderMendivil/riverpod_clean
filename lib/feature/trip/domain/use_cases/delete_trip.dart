@@ -1,12 +1,11 @@
 import 'package:riverpod_clean/feature/trip/domain/entities/entities.dart';
 import 'package:riverpod_clean/feature/trip/domain/repositories/repositories.dart';
 
-class GetTrips{
+class DeleteTrip{
   final TripRepository<Trip> repository;
+  DeleteTrip({required this.repository});
 
-  GetTrips({required this.repository});
-
-  Future<List<Trip>> call() async {
-    return await repository.getTrips();
+  Future<void> call(String id) async {
+    return await repository.deleteTrip(id);
   }
 }
